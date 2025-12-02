@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMMEL | Vision - Our Future Goals</title>
+    <link rel="stylesheet" >
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0e17;
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .home-icon {
+            font-weight: bold;
+            color: #4a9eff;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #4a9eff;
+        }
+        
+        nav a.active {
+            color: #4a9eff;
+        }
+        
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #a8c6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #a8c6ff;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* Vision Content */
+        .vision-content {
+            padding: 60px 0;
+        }
+        
+        .vision-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+        
+        .vision-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .vision-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .vision-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .vision-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #fff, #8b68ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #a8c6ff;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .section-text {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            color: white;
+            box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.6);
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+            background: rgba(20, 25, 40, 0.5);
+            border-radius: 16px;
+            margin: 40px 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background: rgba(30, 35, 50, 0.6);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(74, 158, 255, 0.2);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4a9eff;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .value-text {
+            color: #aaa;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #a8c6ff;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4a9eff;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="home-icon"><i class="fas fa-home"></i> Home Page</a>
+                <div>Vision for the Future</div>
+            </div>
+            
+            <div class="logo-container">
+                <div class="logo">EMMEL</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision.html" class="active">Our Vision</a></li>
+                        <li><a href="Programs.html">Programs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="About.hmtl.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Vision for Tomorrow</h1>
+            <p class="page-subtitle">Creating a better future through innovative technology solutions that empower humanity</p>
+        </div>
+    </section>
+
+    <!-- Vision Content -->
+    <section class="vision-content">
+        <div class="container">
+            <div class="vision-section">
+                <div class="vision-image">
+                    <img src="pp.webp" alt="A boy reading a book">
+                </div>
+                
+                <div class="vision-text">
+                    <h2 class="section-title">Shaping the Future</h2>
+                    <p class="section-subtitle">Redefining what's possible with technology</p>
+                    <p class="section-text">At EMMEL, our vision extends beyond creating products – we aim to shape the future of technology itself. We believe that the most powerful innovations come from imagining what could be, not just improving what already exists.</p>
+                    <p class="section-text">Our vision is to develop technologies that seamlessly integrate into daily life, solving complex challenges while remaining intuitive and accessible to everyone.</p>
+                    <a href="Programs.html" class="btn btn-primary">Explore Our Programs</a>
+                </div>
+            </div>
+            
+            <div class="vision-section" style="flex-direction: row-reverse;">
+                <div class="vision-image">
+                    <img src="ss.webp" alt="A girl with a laptop">
+                </div>
+                
+                <div class="vision-text">
+                    <h2 class="section-title">Sustainable Innovation</h2>
+                    <p class="section-subtitle">Technology that respects our planet</p>
+                    <p class="section-text">We envision a future where technological advancement and environmental sustainability go hand in hand. Our commitment to green technology drives us to develop solutions that minimize environmental impact while maximizing efficiency.</p>
+                    <p class="section-text">From energy-efficient computing to biodegradable materials in our hardware, sustainability is at the core of our vision for the future of technology.</p>
+                    <a href="Contact.html" class="btn btn-primary">Join Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Core Values</h2>
+            <p class="section-subtitle" style="text-align: center;">The principles that guide our vision and innovation</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation First</h3>
+                    <p class="value-text">We prioritize groundbreaking ideas and approaches that challenge conventional thinking and push technological boundaries.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Ethical Technology</h3>
+                    <p class="value-text">We develop technology with integrity, ensuring our solutions benefit society while respecting privacy and security.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaborative Excellence</h3>
+                    <p class="value-text">We believe the best solutions come from diverse teams working together toward a common vision of technological advancement.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="value-title">Sustainable Future</h3>
+                    <p class="value-text">Our commitment to sustainability ensures that our technological advancements contribute to a healthier planet for future generations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">EMMEL</div>
+                    <p>Innovative tech solutions for a better tomorrow</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision.hmtl.html">Our Vision</a></li>
+                        <li><a href="Programs.html">Programs</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@emmeltech.com</li>
+                        <li><i class="fas fa-phone"></i> +(233) 54 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tech Valley, CA 94000</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 EMMEL Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

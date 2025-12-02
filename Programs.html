@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMMEL | Innovative Tech Solutions</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0e17;
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .home-icon {
+            font-weight: bold;
+            color: #4a9eff;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #4a9eff;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .hero {
+            padding: 100px 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #fff, #a8c6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #a8c6ff;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            color: white;
+            box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #a8c6ff;
+            border: 2px solid #4a9eff;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(74, 158, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #fff, #8b68ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #a8c6ff;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .section-text {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Programs Section - Table Format */
+        .programs-section {
+            padding: 80px 0;
+            background: rgba(10, 15, 30, 0.5);
+        }
+        
+        .programs-table-container {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .programs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(20, 25, 40, 0.9);
+        }
+        
+        .programs-table th {
+            background: linear-gradient(90deg, #4a9eff, #8b68ee);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .programs-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ddd;
+        }
+        
+        .programs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .programs-table tr:hover {
+            background: rgba(30, 35, 60, 0.8);
+        }
+        
+        .program-name {
+            color: #a8c6ff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .program-duration {
+            color: #4a9eff;
+            font-weight: 500;
+        }
+        
+        .program-level {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(74, 158, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Lists Section */
+        .lists-section {
+            padding: 60px 0;
+        }
+        
+        .lists-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .list-card {
+            background: rgba(20, 25, 40, 0.8);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .list-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 158, 255, 0.2);
+        }
+        
+        .list-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #a8c6ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .list-title i {
+            color: #4a9eff;
+        }
+        
+        ol.program-courses, ul.program-courses {
+            padding-left: 20px;
+            color: #ccc;
+        }
+        
+        ol.program-courses li, ul.program-courses li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+        
+        ol.program-courses li {
+            counter-increment: item;
+        }
+        
+        .highlight-course {
+            color: #4a9eff;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #a8c6ff;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4a9eff;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .lists-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            .programs-table th, 
+            .programs-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="home-icon"><i class="fas fa-home"></i> Home Page</div>
+                <div>EMMEL Tech Solutions</div>
+            </div>
+            
+            <div class="logo-container">
+                <div class="logo">EMMEL</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision.hmtl.html">Our Vision</a></li>
+                        <li><a href="Programs.html">Programs</a></li>
+                        <li><a href="Programs.html">Courses</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="About.hmtl.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">INNOVATIVE TECH SOLUTIONS</h1>
+                <p class="hero-subtitle">Building the future with cutting-edge technology</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">SIGN UP</button>
+                    <button class="btn btn-secondary">LEARN MORE</button>
+                </div>
+                
+                <p class="section-text">Explore our comprehensive technology programs designed to equip you with the skills needed for the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-image">
+                <img src="students.jpg" alt="Two students with a laptop">
+            </div>
+            
+            <div class="about-content">
+                <h2 class="section-title">Our Vision</h2>
+                <p class="section-subtitle">Creating a better future through technology</p>
+                <p class="section-text">At EMMEL, we believe that technology should empower people and businesses to achieve more. Our vision is to develop intuitive, powerful solutions that simplify complex problems and unlock new possibilities.</p>
+                <p class="section-text">We're committed to innovation, quality, and user experience in everything we create. From cutting-edge software to innovative hardware, our products are designed to make a real difference in people's lives.</p>
+                <button class="btn btn-primary" style="margin-top: 20px;">Explore Our Vision</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section - Table Format -->
+    <section class="programs-section" id="programs">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Programs</h2>
+            <p class="section-subtitle" style="text-align: center;">Comprehensive technology education programs</p>
+            
+            <div class="programs-table-container">
+                <table class="programs-table">
+                    <thead>
+                        <tr>
+                            <th>Program Name</th>
+                            <th>Duration</th>
+                            <th>Level</th>
+                            <th>Focus Area</th>
+                            <th>Certification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="program-name">Biodensand Biotech</span></td>
+                            <td><span class="program-duration">12 Months</span></td>
+                            <td><span class="program-level">Advanced</span></td>
+                            <td>Biotechnology & Environmental Science</td>
+                            <td>Biotech Specialist</td>
+                        </tr>
+                        <tr>
+                            <td><span class="program-name">CIV Seebim AI Vision</span></td>
+                            <td><span class="program-duration">9 Months</span></td>
+                            <td><span class="program-level">Intermediate</span></td>
+                            <td>Computer Vision & AI Integration</td>
+                            <td>AI Vision Engineer</td>
+                        </tr>
+                        <tr>
+                            <td><span class="program-name">Quantum Processing</span></td>
+                            <td><span class="program-duration">18 Months</span></td>
+                            <td><span class="program-level">Expert</span></td>
+                            <td>Quantum Computing & High-Performance Systems</td>
+                            <td>Quantum Computing Specialist</td>
+                        </tr>
+                        <tr>
+                            <td><span class="program-name">Cybersecurity Defense</span></td>
+                            <td><span class="program-duration">10 Months</span></td>
+                            <td><span class="program-level">Intermediate</span></td>
+                            <td>Network Security & Ethical Hacking</td>
+                            <td>Security Analyst</td>
+                        </tr>
+                        <tr>
+                            <td><span class="program-name">Data Science Mastery</span></td>
+                            <td><span class="program-duration">14 Months</span></td>
+                            <td><span class="program-level">Advanced</span></td>
+                            <td>Machine Learning & Big Data Analytics</td>
+                            <td>Data Scientist</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="section-text" style="text-align: center; margin-top: 20px;">
+                All programs include hands-on projects, industry mentorship, and career placement assistance.
+            </p>
+        </div>
+    </section>
+
+    <!-- Lists Section - Ordered & Unordered Lists -->
+    <section class="lists-section" id="courses">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Program Course Details</h2>
+            <p class="section-subtitle" style="text-align: center;">Structured learning paths with comprehensive curriculum</p>
+            
+            <div class="lists-container">
+                <!-- Ordered List Card -->
+                <div class="list-card">
+                    <h3 class="list-title"><i class="fas fa-list-ol"></i>Core Curriculum Sequence</h3>
+                    <p class="section-text">Our programs follow this structured learning path:</p>
+                    <ol class="program-courses">
+                        <li><span class="highlight-course">Foundation Modules</span> - Basic principles and fundamentals</li>
+                        <li><span class="highlight-course">Core Technology Courses</span> - Specialized technical training</li>
+                        <li><span class="highlight-course">Practical Lab Sessions</span> - Hands-on implementation</li>
+                        <li><span class="highlight-course">Industry Projects</span> - Real-world applications</li>
+                        <li><span class="highlight-course">Capstone Project</span> - Comprehensive final project</li>
+                        <li><span class="highlight-course">Career Preparation</span> - Interview skills and portfolio building</li>
+                    </ol>
+                </div>
+                
+                <!-- Unordered List Card -->
+                <div class="list-card">
+                    <h3 class="list-title"><i class="fas fa-list-ul"></i>Program Features & Benefits</h3>
+                    <p class="section-text">What you'll gain from our programs:</p>
+                    <ul class="program-courses">
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Hands-on project experience</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Industry expert mentorship</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> State-of-the-art lab facilities</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Career placement assistance</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Certification upon completion</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Access to alumni network</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Flexible learning schedules</li>
+                        <li><i class="fas fa-check-circle" style="color: #4a9eff;"></i> Continuous skill updates</li>
+                    </ul>
+                </div>
+                
+                <!-- Mixed List Card -->
+                <div class="list-card">
+                    <h3 class="list-title"><i class="fas fa-graduation-cap"></i>Specialized Course Tracks</h3>
+                    <p class="section-text">Choose your specialization path:</p>
+                    <ol class="program-courses">
+                        <li><strong>AI & Machine Learning Track</strong>
+                            <ul style="margin-top: 8px; margin-left: 20px;">
+                                <li>Neural Networks & Deep Learning</li>
+                                <li>Natural Language Processing</li>
+                                <li>Computer Vision Fundamentals</li>
+                            </ul>
+                        </li>
+                        <li><strong>Biotechnology Track</strong>
+                            <ul style="margin-top: 8px; margin-left: 20px;">
+                                <li>Genetic Engineering Basics</li>
+                                <li>Environmental Biotechnology</li>
+                                <li>Bioinformatics Applications</li>
+                            </ul>
+                        </li>
+                        <li><strong>Advanced Computing Track</strong>
+                            <ul style="margin-top: 8px; margin-left: 20px;">
+                                <li>Quantum Computing Principles</li>
+                                <li>High-Performance Systems</li>
+                                <li>Parallel Processing Techniques</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">EMMEL</div>
+                    <p>Innovative tech solutions for a better tomorrow</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#vision">Our Vision</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@emmeltech.com</li>
+                        <li><i class="fas fa-phone"></i> +(233)54 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tech Valley, CA 94000</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 EMMEL Technologies. All rights reserved. | <a href="#" style="color: #4a9eff;">Privacy Policy</a> | <a href="#" style="color: #4a9eff;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
